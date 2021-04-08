@@ -3,7 +3,7 @@ close all
 d = readtable('intel.csv');
 
 maxH = 500;
-numHtoPlot = 50;
+numHtoPlot = 20;
 %% 1
 X = d.Volume;
 X_miss = d.VolumeMissing;
@@ -14,14 +14,14 @@ tList = 1:length(Y_miss);
 [acf, lags, bounds] = autocorr(Y_miss, 'NumLags', maxH);
 yyaxis left
 subplot(1,2,1)
-stem(lags(1:numHtoPlot),acf(1:numHtoPlot),'filled')
+stem(lags(1:numHtoPlot),acf(1:numHtoPlot),'filled','k')
 xlabel('$$h$$', 'Interpreter', 'Latex')
 ylabel('$$\hat{\rho_Y}$$','Interpreter','Latex')
 % title('$$\hat{\rho_Y}$$','Interpreter','Latex')
 
 N = length(Y);
 MSE = zeros(1, maxH + 1);
-for h = 0:numHtoPlot
+for h = 0:numHtoPlot5
     acf_subset = acf(h+1:h+1+400);
     pd_sample = fitdist(acf_subset, 'Normal'); % fit normal dist'n to data
     CI_params = pd_sample.paramci;
@@ -46,7 +46,7 @@ end
 hold on
 yyaxis right
 plot(0:numHtoPlot,sqrt(MSE(1:numHtoPlot+1)))
-ylabel(['RMSE of computed pdf of ACF(h:' num2str(numHtoPlot) '400+h) to $$N(\mu=0, \sigma=\sqrt{N^{-1}})$$'],'Interpreter','Latex')
+ylabel(['RMSE of computed pdf of ACF(h:400+h) to $$N(0, $$N$$^{-1})$$'],'Interpreter','Latex')
 hold off
 
 subplot(1,2,2)
