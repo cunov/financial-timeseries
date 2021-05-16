@@ -18,7 +18,7 @@ ylim([-.2, 1])
 
 resX = X - mean(X);
 lags = 1:50;
-[h, pValue, stat, cValue] = lbqtest(resX, 'lags', lags);
+[h, pValue, stat, cValue] = lbqtest(resX, 'lags', 50);
 subplot(2,2,2)
 
 p = plot(lags, pValue, 'k');
