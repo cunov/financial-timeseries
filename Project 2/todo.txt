@@ -1,0 +1,4 @@
+TODO:
+offset on ARMA?
+add more sophisticated comments for the QQ and autocorr plots in 5 and 6
+do 7
