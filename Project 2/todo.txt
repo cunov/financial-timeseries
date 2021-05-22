@@ -1,4 +1,8 @@
 TODO:
-offset on ARMA?
-add more sophisticated comments for the QQ and autocorr plots in 5 and 6
-do 7
+[3] 
+	offset on ARMA?
+	"deduce from the obtained ARMA models the orders of GARCH models that could be suitable to model the returns"
+[5,6] 
+	add more sophisticated comments for the QQ and autocorr plots
+[7] 
+	do it
