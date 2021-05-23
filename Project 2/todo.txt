@@ -1,7 +1,4 @@
 TODO:
-[3] 
-	offset on ARMA?
-	"deduce from the obtained ARMA models the orders of GARCH models that could be suitable to model the returns"
 [5,6] 
 	add more sophisticated comments for the QQ and autocorr plots
 	i defined a t-dist for the qqplots on t-dist'd models and it got the line straight as hell, wondering if we should be defining something about the gaussian qq as well
