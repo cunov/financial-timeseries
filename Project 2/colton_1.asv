@@ -1,6 +1,6 @@
 candidate_ARMA_models = [best_ARMA_mdl_Gauss_AICC, best_ARMA_mdl_Gauss_BIC, best_ARMA_mdl_t_AICC, best_ARMA_mdl_t_BIC];
 candidate_GARCH_models = [best_GARCH_mdl_Gauss_AICC, best_GARCH_mdl_Gauss_BIC, best_GARCH_mdl_t_AICC, best_GARCH_mdl_t_BIC];
-%% removing the identical models
+
 identical_ARMA = [];
 identical_GARCH = [];
 for i = 1:4
@@ -41,16 +41,10 @@ disp('Candidate GARCH models:')
 for i = 1:length(candidate_GARCH_models)
     disp(candidate_GARCH_models(i).Description);
 end
-%%
-gauss_dist_ARMA = makedist('normal','mu',candidate_ARMA_models(1).Constant,'sigma',sqrt(candidate_ARMA_models(1).Variance));
-gauss_dist_GARCH = makedist('normal','mu',candidate_GARCH_models(1).Constant,'sigma',???);
 
-t_dist_ARMA = makedist('tLocationScale','nu',candidate_ARMA_models(2).Distribution.DoF);
-t_dist_GARCH = makedist('tLocationScale','nu',candidate_GARCH_models(2).Distribution.DoF);
-    
 for t = 1527:1751
     V_tmp = V(1:t-1);
     X_tmp = X(1:t-1);
-    
-    
-    
+    gauss_dist = makedist('normal',mu,mean(X_tmp),'sigma',std(X_tmp));
+    t_dist = makedist('tLocationScale','nu',
+
