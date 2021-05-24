@@ -1,6 +1,9 @@
 TODO:
 [5,6] 
 	add more sophisticated comments for the QQ and autocorr plots
-	i defined a t-dist for the qqplots on t-dist'd models and it got the line straight as hell, wondering if we should be defining something about the gaussian qq as well
+	They define q as going from 0 to K, but this gives an error right now (both p and q needs to be atleast 1 right now)
+[6]
+	Check why using the offset on the GARCH with t-dist gives bad qq-plots.
+
 [7] 
 	do it
